@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #171412;
+  background: #f8f4f1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { min-width: 320px; margin: 0; }
+button, input, select, textarea { font: inherit; }
+::selection { color: white; background: #ec4899; }
+
+.nav-link { position: relative; padding: 8px 0; font-size: 12px; color: rgb(23 20 18 / 68%); transition: color 180ms ease; }
+.nav-link:hover, .nav-link-active { color: #ec4899; }
+.nav-link-active::after { position: absolute; right: 0; bottom: 1px; left: 0; height: 1px; background: #ec4899; content: ''; }
+.mobile-nav-link { display: block; border-bottom: 1px solid rgb(23 20 18 / 9%); padding: 15px 0; font-family: 'Playfair Display', serif; font-size: 21px; }
+.button-dark, .button-light, .button-outline { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 0 22px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease; }
+.button-dark { background: #171412; color: white; }
+.button-dark:hover { background: #ec4899; }
+.button-light { background: white; color: #171412; }
+.button-light:hover { background: #ec4899; color: white; }
+.button-outline { border: 1px solid rgb(23 20 18 / 25%); color: #171412; }
+.button-outline:hover { border-color: #ec4899; color: #ec4899; }
+.eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; line-height: 1.5; }
+.section-wrap { margin: 0 auto; max-width: 1440px; padding: 72px 24px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; }
+.field-label { display: block; margin-bottom: 9px; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
+.form-input { display: block; width: 100%; min-height: 48px; border: 1px solid rgb(23 20 18 / 18%); border-radius: 0; background: white; padding: 12px 14px; color: #171412; font-size: 14px; outline: none; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.form-input::placeholder { color: rgb(23 20 18 / 38%); }
+.form-input:focus { border-color: #ec4899; box-shadow: 0 0 0 2px rgb(236 72 153 / 12%); }
+textarea.form-input { min-height: 128px; }
+/* ===============================
+   SCROLL-REVEAL ANIMATIONS
+   =============================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays */
+.reveal.delay-1 { transition-delay: 0.05s; }
+.reveal.delay-2 { transition-delay: 0.15s; }
+.reveal.delay-3 { transition-delay: 0.30s; }
+.reveal.delay-4 { transition-delay: 0.45s; }
+.reveal.delay-5 { transition-delay: 0.60s; }
+.reveal.delay-6 { transition-delay: 0.75s; }
+.reveal.delay-7 { transition-delay: 0.90s; }
+.reveal.delay-8 { transition-delay: 1.05s; }
+
+/* Image zoom on reveal */
+.reveal-image {
+  overflow: hidden;
+}
+
+.reveal-image img {
+  transform: scale(1.08);
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.reveal-image.is-visible img {
+  transform: scale(1);
+}
+@media (min-width: 768px) {
+  .section-wrap { padding: 96px 80px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+
+
